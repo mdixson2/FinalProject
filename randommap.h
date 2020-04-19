@@ -67,7 +67,4 @@ vector<int> CreateRandomMap()
 return rooms;
 }
 
-
-
-
 #endif

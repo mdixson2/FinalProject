@@ -1,5 +1,9 @@
 #include "player.h"
 
+int main()
+{
+	return 0;
+}
 
 Player::Player(char difficulty)
 {

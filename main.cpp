@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include "randommap.h"
 #include "player.h"
+#include "player.cpp"
 #include "enemy.h"
 #include "item.h"
 

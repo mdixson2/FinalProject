@@ -1,10 +1,5 @@
-all: main player
-
-main: main.cpp
-	g++ -std=c++11 -o main main.cpp
-
-player: player.cpp
-	g++ -std=c++11 -o player player.cpp
+main: main.cpp player.cpp
+	g++ *.cpp -o main
 
 .PHONY: clean
 clean:

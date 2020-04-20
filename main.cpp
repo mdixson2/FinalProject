@@ -10,7 +10,6 @@
 #include <stdio.h>
 #include "randommap.h"
 #include "player.h"
-#include "player.cpp"
 #include "enemy.h"
 #include "item.h"
 
@@ -78,8 +77,8 @@ int x = sqrt(grid.size());
       }
   }
   cout << endl << "Exit is room " << exit_room << endl;
+	p.position = 0;
   while(true){
-
     cout << "\nYou are in Room Number: " << p.position << endl;
     cout << "This room is type: " << grid[p.position].typestring << endl;
     if(grid[p.position].visited == true)

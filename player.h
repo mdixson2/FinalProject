@@ -32,7 +32,8 @@ class Player
     void useItem();
 
     map<vector<int>, string> inventory;
-    map<vector<int>, string>::iterator iit;
+    map<vector<int>, string>::iterator iit, eit;
+    map<vector<int>, string> equip;
  
 
 };

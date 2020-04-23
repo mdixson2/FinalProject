@@ -25,9 +25,46 @@ int main() {
   char difficulty;
   char m = 'P';
   vector <Room> grid;
-  vector<int> roomTypes = CreateRandomMap();
-  grid.resize(25);
+  vector<int> roomTypes;
+  
+  //startup options and game tutorial
+ cout << "You wake up dazed on a cold, barren stone floor. Your back aches from the uneven bumps and cracks that you were once laying on. Observing your surroundings, you notice you’re in another generic dungeon crawler game.\nHow typical!\nAs these games tend to go you must find a way out of the walls that confine you by any means necessary. Minimizing moves and maximizing health will ensure you get the highest score possible! The dungeon you inhabit features a bounty of traps, enemies, and puzzles. You can move in any of the cardinal directions as long as there is a room there.\nYou can show your current inventory with I and if there is an item to interact with using the command U to use an item in your inventory. Using P will allow you see you current health and points. Finally you can show the map of the dungeon with M.\n\nEnter ‘B’ to begin and best of luck to you traveller!" << endl;
+  cin >> input;
+  //If the user does not enter B then it will 
+  //keep asking until the user enters a B
+  while(input != 'B'){
+    cout << "PLEASE ENTER B TO BEGIN:";
+    cin >> input;
+  }
+  //There are three difficulties, easy, medium, hard
+  //and fourth debug mode
+  cout << "CHOOSE A DIFFICULTY:" << endl << "(E)asy  (M)edium  (H)ard  (D)ebug" << endl;
+  cin >> difficulty;
 
+  while(difficulty != 'E' && difficulty != 'M' && difficulty != 'H' && difficulty != 'D'){
+    cout << "PLEASE ENTER E, M, H, or D: ";
+    cin >> difficulty;
+  }
+  //Based on the difficulty, it will size the dungeon 
+  //accordingly
+  if(difficulty == 'D')
+  {
+    grid.resize(9);
+    roomTypes = CreateDebugMap(grid.size());
+  }
+  else
+  {
+    if(difficulty == 'E')
+      grid.resize(16);
+    if(difficulty == 'M')
+      grid.resize(25);
+    if(difficulty == 'H')
+      grid.resize(49);
+    //This randomizes all of the room types for the 
+    //dungeon
+    roomTypes = CreateRandomMap(grid.size());
+  }
+  //These are all of the different rooms that can be spawned
   for(int i = 0; i < grid.size(); i++){
     grid[i].roomNum = i;
     grid[i].type = roomTypes[i];
@@ -45,31 +82,17 @@ int main() {
       grid[i].typestring = "Item";
   }
 
-  //startup options and game tutorial
- cout << "You wake up dazed on a cold, barren stone floor. Your back aches from the uneven bumps and cracks that you were once laying on. Observing your surroundings, you notice you’re in another generic dungeon crawler game. How typical! As these games tend to go you must find a way out of the walls that confine you by any means necessary. Minimizing moves and maximizing health will ensure you get the highest score possible! The dungeon you inhabit features a bounty of traps, enemies, and puzzles. You can move in any of the cardinal directions as long as there is a room there. You can show your current inventory with I and if there is an item to interact with using the command ___ ___ to use an item in your inventory. Using P will allow you see you current health and points.\n Enter ‘B’ to begin and best of luck to you traveller!" << endl;
-  cin >> input;
-  while(input != 'B'){
-    cout << "PLEASE ENTER B TO BEGIN:";
-    cin >> input;
-  }
-  
-  cout << "CHOOSE A DIFFICULTY:" << endl << "E  M  H " << endl;
-  cin >> difficulty;
-
-  while(difficulty != 'E' && difficulty != 'M' && difficulty != 'H'){
-    cout << "PLEASE ENTER E M H: ";
-    cin >> difficulty;
-  }
   cout << '\n'; 
   Player p(difficulty);
   cout << "PLAYING ON " << difficulty << "\n";
   //p.nextMove(m);
-
-int x = sqrt(grid.size());
+  p.gridSize = grid.size();
+  int x = sqrt(grid.size());
 
   int exit_room;
   for(int i = 0; i < grid.size(); i++)
   {
+    //Once the exit room is reached the player can choose to continue playing for more points or to end the game
       if(grid[i].type == 1)
       {
         exit_room = i;
@@ -80,7 +103,8 @@ int x = sqrt(grid.size());
 	p.position = 0;
   while(true){
     cout << "\nYou are in Room Number: " << p.position << endl;
-    cout << "This room is type: " << grid[p.position].typestring << endl;
+  //  cout << "This room is type: " << grid[p.position].typestring << endl;
+    //This marks all of the visited rooms so you know where you have been
     if(grid[p.position].visited == true)
       cout << "You've been here before" << endl;
 
@@ -126,17 +150,22 @@ int x = sqrt(grid.size());
 
     grid[p.position].visited = true;
     }
-    else if(grid[p.position].type == 2 && grid[p.position].visited == false){
+    else if(grid[p.position].type == 2 && grid[p.position].defeated != true){
       //boss or enemy text
       //interaction option
       Enemy boss;
+
+      grid[p.position].visited = true;
+
       boss.EncounterEnemy();
       boss.fight(p);
       
-      grid[p.position].visited = true;
+      
+      grid[p.position].defeated = true;
     }
     else if(grid[p.position].type == 3){
-      cout << "Nothing happened..." << endl;
+      cout << "There's nothing interesting in this room..." << endl;
+    //  cout << "Nothing happened..." << endl;
       grid[p.position].visited = true;
     }
     else if(grid[p.position].type == 4 && grid[p.position].visited == false){
@@ -155,7 +184,7 @@ int x = sqrt(grid.size());
     else if(grid[p.position].type == 5 && grid[p.position].visited == false){
       //item room
       
-      int RNG = rand() % 23;
+      int RNG = rand() % it.item.size();
 
       it.mit = it.item.begin();
 
@@ -168,23 +197,56 @@ int x = sqrt(grid.size());
       grid[p.position].visited = true;
     }
 
+   if(p.health <= 0)
+   {
+     cout << "YOU DIED..." << endl;
+     p.points = 0;
+     break;
+   }
+  
+   if(p.position == 0)
+   grid[0].visited = true;
+
+   cout << "You can move: ";
    if(p.position - sqrt(grid.size()) > 0){
-     cout << "You can move up (Press w): ";
+     //cout << "You can move up (Press w): ";
+     cout << " up (w) ";
    }
    if(p.position + sqrt(grid.size()) < grid.size()){
-     cout << "You can move down (Press s): "; 
+     //cout << "You can move down (Press s): "; 
+     cout << " down (s) ";
    }
    if(p.position % x != 0){
-     cout << "You can move left(Press a): ";
+     //cout << "You can move left(Press a): ";
+     cout << " left (a) ";
    }
    if(p.position % x != (x-1)){
-     cout << "You can move right(Press d): ";
+     //cout << "You can move right(Press d): ";
+     cout << " right (d) ";
    }
-   cout << endl;
+   cout << ":\n";
+  
    cin >> m;
    if(m == 'q'){
      break;
    }
+   if(m == 'm'){
+
+  cout << "\n\n";
+
+  for(int i = 0; i < grid.size(); i++){
+
+    if(grid[i].visited == true)
+      cout << grid[i].type << " ";
+    else
+      cout << "- ";
+
+    if((i+1)%x == 0)
+    cout << endl;
+
+  }
+  cout << "\n\n";
+  }
    p.nextMove(m);
 
    cout << "__________________________" << endl << endl;

@@ -3,31 +3,35 @@
 
 #include <iostream>
 #include <vector>
+#include <cmath>
 #include <stdlib.h>
 #include <time.h>
 using namespace std;
 
-vector<int> CreateRandomMap()
+// Creating a random map given the size
+vector<int> CreateRandomMap(int size)
 {
   vector <int> rooms;
-  int n = 5;
+  int n = sqrt(size);
   int startpos, endpos;
 
   srand (time(NULL));
 
+  // Generating the spots for the start and end room
   startpos = 0;
-  endpos = rand() % 24 + 1;
+  endpos = rand() % (size-1) + 1;
+
+  // Creating a square map
   rooms.resize(n*n, -1);
 
-  // The starting room is always at 0
+  // Placing the start and end room
   rooms[startpos] = 0;
-
-  // Placing the end room
   rooms[endpos] = 1;
 
   // Randomly placing the rest of the rooms
   for (int i = 1; i < (n*n); i++)
   {
+    // If the map[i] already exists
     if (rooms[i] != -1)
       continue;
 
@@ -59,12 +63,41 @@ vector<int> CreateRandomMap()
     rooms[i] = roomtype;
   }
   
+  // Printing out the map for testing purposes
   for (int i = 0; i < rooms.size(); i++)
   {
+    if(i % n == 0) cout << endl;
     cout << rooms[i];
   }
   cout << '\n';
 return rooms;
 }
 
+// Creating the debug map
+vector<int> CreateDebugMap(int size)
+{
+  vector <int> rooms;
+  rooms.resize(size);
+
+  // Placing all rooms for testing
+  for (unsigned int i = 0; i < rooms.size(); i++)
+  {
+    if(i == 0)
+      rooms[i] = 0;
+    else if(i > 0 && i < 3)
+      rooms[i] = 2;
+    else if(i == 3)
+      rooms[i] = 3;
+    else if(i > 3 && i < 6)
+      rooms[i] = 4;
+    else if(i > 5 && i < 8)
+      rooms[i] = 5;
+    else if(i == 8)
+      rooms[i] = 1;
+  }
+
+  return rooms;
+}
+
 #endif
+

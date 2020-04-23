@@ -10,6 +10,7 @@ class Room
        // int y;      //Coords
         //int weight; //This is basically the distance between two adj nodes
         //int distance;
+        bool defeated;
         bool visited;
         string text; 
         vector< Room * > adj;

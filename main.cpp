@@ -99,7 +99,7 @@ int main() {
         break;
       }
   }
-  cout << endl << "Exit is room " << exit_room << endl;
+ // cout << endl << "Exit is room " << exit_room << endl;
 	p.position = 0;
   while(true){
     cout << "\nYou are in Room Number: " << p.position << endl;

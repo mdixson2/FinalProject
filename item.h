@@ -43,9 +43,9 @@ Items(){
       item.insert(pair<vector<int>, string>(TypeStat, weapons[randChoice]));
     }
     else if(randNum >= 4 && randNum <= 7){
-      TypeStat.push_back(1);
+      TypeStat.push_back(0);
       TypeStat.push_back(healing[randChoice]);
-      item.insert(pair<vector<int>, string>(TypeStat, health[randChoice]));
+      item.insert(pair<vector<int>, string>(TypeStat, weapons[randChoice]));
     }
     else{
 

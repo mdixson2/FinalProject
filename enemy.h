@@ -168,7 +168,7 @@ void Enemy::fight(Player &p)
           
           // The player retreats
           case('r'):
-            cout << "You retreat! Were you scared or almost dead? Who knows?" << endl;
+            cout << endl << "You retreat! Were you scared or almost dead? Who knows?" << endl;
             retreat = true;
             p.position = p.last_room_index;
             break;

@@ -33,7 +33,7 @@ int main() {
   //If the user does not enter B then it will 
   //keep asking until the user enters a B
   while(input != 'B'){
-    cout << "PLEASE ENTER B TO BEGIN:";
+    cout << "PLEASE ENTER B TO BEGIN:\n";
     cin >> input;
   }
   //There are three difficulties, easy, medium, hard

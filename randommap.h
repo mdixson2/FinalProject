@@ -64,12 +64,12 @@ vector<int> CreateRandomMap(int size)
   }
   
   // Printing out the map for testing purposes
-  for (int i = 0; i < rooms.size(); i++)
-  {
-    if(i % n == 0) cout << endl;
-    cout << rooms[i];
-  }
-  cout << '\n';
+  //for (int i = 0; i < rooms.size(); i++)
+  //{
+  //  if(i % n == 0) cout << endl;
+  //  cout << rooms[i];
+  //}
+  //cout << '\n';
 return rooms;
 }
 
@@ -96,6 +96,14 @@ vector<int> CreateDebugMap(int size)
       rooms[i] = 1;
   }
 
+  // Printing out the map for testing purposes
+  for (int i = 0; i < rooms.size(); i++)
+  {
+	int n = sqrt(size);
+    if(i % n == 0) cout << endl;
+    cout << rooms[i];
+  }
+  cout << '\n';
   return rooms;
 }
 

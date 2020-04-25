@@ -62,14 +62,6 @@ vector<int> CreateRandomMap(int size)
 
     rooms[i] = roomtype;
   }
-  
-  // Printing out the map for testing purposes
-  //for (int i = 0; i < rooms.size(); i++)
-  //{
-  //  if(i % n == 0) cout << endl;
-  //  cout << rooms[i];
-  //}
-  //cout << '\n';
 return rooms;
 }
 

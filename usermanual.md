@@ -21,6 +21,7 @@ If you fight, you take the first move. Use *n* to attack, *i* to use an item, an
 *Dying is bad. If you lose all of your health, you die and the game ends immediately!*
 
 ## Known Bugs
+There are no known bugs.
 
 ## What do I need to play this game?
 All you need to play Dungeon Crawler is a keyboard and access to a UTK EECS machine. This game can work on other machines, but it is guaranteed to work

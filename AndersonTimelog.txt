@@ -1,0 +1,9 @@
+3/14/20
+Brainstorming Potential Ideas - 30 Minutes
+Install Unity and connecting to git repo/slack - 30 Minutes
+
+3/31/20
+Group Meeting deciding new direction of project due to current constraints - 1 Hour
+
+4/13/20
+Began writing template text for dungeon crawler, helped code beginning of main.cpp - 2 Hour

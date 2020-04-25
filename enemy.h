@@ -30,28 +30,31 @@ Enemy::Enemy()
 
   name = "Boss Name";
 
-  // Setting the boss attack style
+  // Setting the boss stats
   if (randomnum == 1)
+  {
+	name = "Dr. Emrich";
     attackstyle = "Melee";
+	maxhit = 10;
+  }
   else if (randomnum == 2)
+  {
+	name = "Dr. Marz";
     attackstyle = "Ranged";
+	maxhit = 20;
+  }
   else if (randomnum == 3)
-    attackstyle = "Magic";
+  {
+	name = "Dr. Plank";
+	attackstyle = "Magic";
+	maxhit = 30;
+  }
 
   // Setting the boss health value
   health = 100;
-  
-  // Setting the max hit for each boss
-  if (attackstyle == "Melee")
-    maxhit = 10;
-  else if (attackstyle == "Ranged")
-    maxhit = 20;
-  else if (attackstyle == "Magic")
-    maxhit = 30;
-
 }
 
-// Printing information when encountering boss (some are temporary for testing)
+// Printing information when encountering boss
 void Enemy::EncounterEnemy()
 {
   PrintName();

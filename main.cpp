@@ -183,15 +183,18 @@ int main() {
     }
     else if(grid[p.position].type == 5 && grid[p.position].visited == false){
       //item room
-      
+
+	  //random number based on size of item map
       int RNG = rand() % it.item.size();
 
       it.mit = it.item.begin();
 
+	  //go to random element of the map
       advance(it.mit, RNG);
 
       cout << "You have recieved a " << it.mit->second << endl;
 
+	  //add that item to inventory
       p.inventory.insert(pair<vector<int>, string>(it.mit->first, it.mit->second));
 
       grid[p.position].visited = true;

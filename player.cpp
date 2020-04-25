@@ -2,6 +2,7 @@
 
 Player::Player(char difficulty)
 {
+  //change health and points based of difficulty
   if(difficulty == 'E' || difficulty == 'D')
   {
     health = 400;
@@ -21,6 +22,7 @@ Player::Player(char difficulty)
   }
 
   moves = 1;
+  //set default attack
   attack = 20;
 
 }

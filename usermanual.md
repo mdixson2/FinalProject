@@ -18,7 +18,7 @@ You can examine your inventory with *i* and use an item with *u*.
 Combat starts when you enter an enemy room. You can fight with *f* or retreat with *r*. If you run away, the enemy will stay in the room.
 If you fight, you take the first move. Use *n* to attack, *i* to use an item, and *r* to retreat. If you kill an enemy, you get 5000 points.
 
-*Dieing is bad. If you lose all of your health, you die and the game ends immediately!*
+*Dying is bad. If you lose all of your health, you die and the game ends immediately!*
 
 ## Known Bugs
 

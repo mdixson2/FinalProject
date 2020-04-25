@@ -2,23 +2,17 @@
 #define ROOM_H
 
 using namespace std;
-//Graph from project 4 
+
 class Room
 {
     public:
-       // int x;
-       // int y;      //Coords
-        //int weight; //This is basically the distance between two adj nodes
-        //int distance;
-        bool defeated;
-        bool visited;
-        string text; 
-        vector< Room * > adj;
-        //map<int, string> type;//This determines the type of room that will be generated
-
-        string typestring;
-        int type;
-        int roomNum;
+        bool defeated;			// Stores if the boss has been defeated
+        bool visited;			// Stores if the player has visited the room
+        string text;			
+        vector< Room * > adj;	// Storing the adjacent rooms
+        string typestring;		// The room type converted to a string for output
+        int type;				// The room type (integer)
+        int roomNum;			// Storing which number the room is in the graph
 };
 
 #endif

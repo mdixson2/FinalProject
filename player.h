@@ -25,7 +25,6 @@ class Player
     Room* current;
     Player(char);
     int gridSize;
-//    void Attack(const Enemy &boss);
     void status();
     void nextMove(char m);
     void endPoints();
@@ -34,8 +33,6 @@ class Player
     map<vector<int>, string> inventory;
     map<vector<int>, string>::iterator iit, eit;
     map<vector<int>, string> equip;
- 
-
 };
 
 

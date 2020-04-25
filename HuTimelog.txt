@@ -1,0 +1,7 @@
+03/11/2020
+Skimmed through a c# tutorial to learn syntax and how to use language on youtube while reading some stuff on the internet 2hr
+03/13/2020
+Installed UNITY with the files and started the tutorial 2hr
+4/13/2020
+Wrote the main function along with assisting in creating the rooms class along with some of the functions for the player.
+2hr

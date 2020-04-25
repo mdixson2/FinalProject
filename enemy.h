@@ -176,8 +176,10 @@ void Enemy::fight(Player &p)
       p.health -= damage;
       cout << "You took " << damage << " damage! Ouch!!!" << endl;
 
-      if(p.health < 0)
+      if(p.health <= 0){
         p.health = 0;
+		p.points = 0;
+	  }
         
       // Printing the player and boss health after each turn
       cout << "Your health: " << p.health << endl;

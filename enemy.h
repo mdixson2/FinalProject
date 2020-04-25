@@ -110,7 +110,8 @@ void Enemy::fight(Player &p)
   {
     // Returns the player to the previous room
     p.position = p.last_room_index;
-    cout << endl << "You quickly shut the door with cowardice, but you have only wasted time." << endl << endl;
+    cout << endl << "You quickly shut the door with cowardice, but you have only wasted time." 
+		 << endl << endl;
     cout << "You are still in Room " << p.position << ". Your movement options are the same." << endl;
     return;  
   }
@@ -143,9 +144,7 @@ void Enemy::fight(Player &p)
               cout << "\nYou attack with your fists!" << endl;
             else{
               p.eit = p.equip.begin();
-
               cout << "\nYou attack with a " << p.eit->second << endl;
-
             }
 
             cout << "You deal " << p.attack << " damage!" << endl;
@@ -154,15 +153,7 @@ void Enemy::fight(Player &p)
 
           // The player opens up the inventory
           case('i'):
-            /*if(p.inventory.size() == 0)
-            {
-              cout << "You  don't have any items!" << endl;
-              break;
-
-            }*/
-            //  p.attack = 0;
               p.useItem();
-            //  health -= p.attack;
               continue;
               break;
           

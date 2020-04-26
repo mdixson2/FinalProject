@@ -5,5 +5,8 @@ Installed UNITY with the files and started the tutorial 2hr
 4/13/2020
 Wrote the main function along with assisting in creating the rooms class along with some of the functions for the player.
 2hr
+4/14/2020
+Worked on the player class specifically making sure we could move from room to room and correctly calculate the room and position of player 2hr
 4/18/2020
-Worked on the player class along with the main function to make sure everything was working fine.
+Worked on the player class along with the main function to make sure everything was working fine along with debugging it. 3 hr
+

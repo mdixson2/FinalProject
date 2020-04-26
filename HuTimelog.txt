@@ -11,4 +11,5 @@ Worked on the player class specifically making sure we could move from room to r
 Worked on the player class along with the main function to make sure everything was working fine along with debugging it. 3 hr
 4/20/2020
 Made comments to make the code presentable. 30 min
+Did the presentation for TA 15 min
 

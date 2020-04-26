@@ -85,7 +85,6 @@ int main() {
   cout << '\n'; 
   Player p(difficulty);
   cout << "PLAYING ON " << difficulty << "\n";
-  //p.nextMove(m);
   p.gridSize = grid.size();
   int x = sqrt(grid.size());
 
@@ -99,11 +98,9 @@ int main() {
         break;
       }
   }
- // cout << endl << "Exit is room " << exit_room << endl;
 	p.position = 0;
   while(true){
     cout << "\nYou are in Room Number: " << p.position << endl;
-  //  cout << "This room is type: " << grid[p.position].typestring << endl;
     //This marks all of the visited rooms so you know where you have been
     if(grid[p.position].visited == true)
       cout << "You've been here before" << endl;
@@ -165,7 +162,6 @@ int main() {
     }
     else if(grid[p.position].type == 3){
       cout << "There's nothing interesting in this room..." << endl;
-    //  cout << "Nothing happened..." << endl;
       grid[p.position].visited = true;
     }
     else if(grid[p.position].type == 4 && grid[p.position].visited == false){
@@ -212,19 +208,15 @@ int main() {
 
    cout << "You can move: ";
    if(p.position - sqrt(grid.size()) > 0){
-     //cout << "You can move up (Press w): ";
      cout << " up (w) ";
    }
    if(p.position + sqrt(grid.size()) < grid.size()){
-     //cout << "You can move down (Press s): "; 
      cout << " down (s) ";
    }
    if(p.position % x != 0){
-     //cout << "You can move left(Press a): ";
      cout << " left (a) ";
    }
    if(p.position % x != (x-1)){
-     //cout << "You can move right(Press d): ";
      cout << " right (d) ";
    }
    cout << ":\n";

@@ -19,7 +19,7 @@ Combat starts when you enter an enemy room. You can fight with *f* or retreat wi
 If you fight, you take the first move. Use *n* to attack, *i* to use an item, and *r* to retreat. If you kill an enemy, you get 5000 points.
 
 *Dying is bad. If you lose all of your health, you die and the game ends immediately!*
-### Items
+## Items
 There are several items hidden around the dungeon. These items either increase your health or your attack strength. You can use health items in and outside of battle, but you can only use weapons in battle. If you use an item once, it is gone forever. Be careful about how you use them.
 
 ## Known Bugs
